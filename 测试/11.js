@@ -1,0 +1,12 @@
+setTimeout(function(){
+    console.log("first");
+    setTimeout(function(){
+        console.log("second");
+        setTimeout(function(){
+            console.log("third");
+            setTimeout(function(){
+                console.log("fourth");
+            },2000);
+        },2000);
+    },2000);
+},2000);

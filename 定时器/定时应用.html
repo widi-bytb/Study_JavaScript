@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #box1 {
+        width: 100px;
+        height: 100px;
+        left: 0;
+        background-color: red;
+        position: absolute;
+    }
+    
+    #box2 {
+        width: 0;
+        height: 1000px;
+        border: 1px solid black;
+        top: 0;
+        left: 800px;
+        position: absolute;
+    }
+    
+    #box3 {
+        width: 100px;
+        height: 100px;
+        left: 0px;
+        top: 200px;
+        background-color: blue;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <button id="btn02">点击按钮以后box1向左移动</button>
+    <button id="btn03">点击按钮以后box2向右移动</button>
+    <button id="btn04">测试按钮</button>
+    <br><br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <script src="../tools/定时器.js"></script>
+    <script>
+        var box1 = document.getElementById("box1");
+        var btn01 = document.getElementById("btn01");
+        var btn02 = document.getElementById("btn02");
+        var btn03 = document.getElementById("btn03");
+
+        var oldValue;
+        // 定义一个变量，用来保存定时器的标识符
+        // 目前我们的定时器的标识有全局变量timer保存
+        // 所有的执行正在执行的定时器都在这个变量中保存
+        var timer;
+        // 点击按钮以后，使box1向右移动（left值增大）
+        btn01.onclick = function() {
+            // alert(oldValue);
+            // alert("点我干嘛");
+            // 开启一个定时器，来执行动画效果
+
+            move(box1, "left", 800, 10, function() {
+                alert("动画执行完毕");
+            });
+
+            // // 关闭上一个定时器
+            // clearInterval(timer);
+            // timer = setInterval(function() {
+
+
+            //     // 获取box1的原来的left值
+            //     oldValue = parseInt(getStyle(box1, "left"));
+
+            //     // 在旧值的基础上增加 
+            //     var newValue = oldValue + 19;
+
+            //     // 判断newValue是否大于800
+            //     if (newValue >= 800) {
+            //         newValue = 800;
+            //     }
+
+            //     // 将我们的新指设置给box1
+            //     box1.style.left = newValue + "px";
+
+
+
+            //     // 当我们元素移动到800px时，停止动画
+            //     if (newValue === 800) {
+            //         clearInterval(timer);
+            //     }
+            // }, 30);
+        };
+        btn02.onclick = function() {
+            // alert(oldValue);
+            // alert("点我干嘛");
+            // 开启一个定时器，来执行动画效果
+
+            move(box1, "left", 0, 10, function() {
+                    alert("动画执行完毕");
+                })
+                // // 关闭上一个定时器
+                // clearInterval(timer);
+                // timer = setInterval(function() {
+
+
+            //     // 获取box1的原来的left值
+            //     oldValue = parseInt(getStyle(box1, "left"));
+
+            //     // 在旧值的基础上减少 
+            //     var newValue = oldValue - 19;
+
+            //     // 判断newValue是否小于0
+            //     if (newValue < 0) {
+            //         newValue = 0;
+            //     }
+
+            //     // 将我们的新指设置给box1
+            //     box1.style.left = newValue + "px";
+
+
+
+            //     // 当我们元素移动到0px时，停止动画
+            //     if (newValue === 0) {
+            //         clearInterval(timer);
+            //     }
+            // }, 30);
+        };
+
+        btn03.onclick = function() {
+            move(box3, "left", 800, 10);
+        };
+
+        // 测试按钮
+        btn04.onclick = function() {
+            move(box3, "width", 800, 10, function() {
+                // alert("动画执行完毕");
+                move(box3, "height", 400, 10, function() {
+                    move(box3, "top", 0, 10, function() {
+                        move(box3, "width", 100, 10, function() {
+                            move(box3, "height", 100, 10, function() {
+                                move(box3, "top", 200, 10, function() {})
+                            })
+                        })
+                    });
+                });
+            });
+        };
+    </script>
+</body>
+
+</html>

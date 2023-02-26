@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn01">点我一下</button>
+    <script>
+        var btn01 = document.getElementById("btn01");
+
+        // 为我们的对象.事件 = 函数的形式绑定响应函数
+        // 它只能为一个元素一个事件绑定一个响应函数
+        // 如果绑定了多个，则后边的会覆盖前边的
+        // btn01.onclick = function() {
+        //     alert("点我干嘛");
+        // };
+        // // 为我们的btn01绑定第二个响应函数
+        // btn01.onclick = function() {
+        //     alert("点我干嘛2");
+        // };
+
+        // addEventListener()
+        // -通过这个方法也可以为元素绑定响应函数
+        // ———参数
+        // 1，事件的字符串，不要on
+        // 2，回调函数，当事件被触发时该函数会被调用
+        // 3，是否在捕获阶段触发事件，需要一个布尔值，一般都传false
+        // 使用addEventListener()可以同时为一个元素的相同事件同时绑定多个响应函数
+        // 这样当事件被触发时，响应函数将会按照函数的绑定顺序执行
+        // 
+
+        // W3C综合了两个公司的方案，将事件传播分成三个阶段
+        // 1，捕获阶段
+        // ——在捕获时从最外层祖先元素，向目标元素进行事件的捕获，但是默认此时不会触发事件，
+        // 2，目标阶段
+        // ——事件捕获到目标元素，捕获结束开始从目标元素上触发事件
+        // 3，
+        // ——事件从目标元素向它的祖先元素传递，依次触发祖先元素上的事件
+
+        // 如果希望在捕获阶段就触发事件，可以将addEventListener()的第三个参数设置为true，一般都为false
+        // ——ie8及以下浏览器不支持捕获阶段
+        btn01.addEventListener('click', function() {
+            alert("点我干嘛");
+        }, false);
+        btn01.addEventListener('click', function() {
+            alert("点我干嘛2");
+        }, false);
+        btn01.addEventListener('click', function() {
+            alert("点我干嘛3");
+        }, false);
+    </script>
+</body>
+
+
+</html>

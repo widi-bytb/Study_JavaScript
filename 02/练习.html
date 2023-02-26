@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 1000px;
+        width: 2000px;
+        margin: 0;
+    }
+    
+    #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        /* 开启绝对定位 */
+        position: absolute;
+    }
+    
+    #box2 {
+        width: 400px;
+        height: 400px;
+        background-color: yellow;
+    }
+</style>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+<script>
+    //  使div跟随鼠标移动
+    var box1 = document.getElementById("box1");
+    // 给整个document绑定
+
+    document.onmousemove = function(event) {
+            // 获取鼠标的坐标
+
+            // 获取滚动条的滚动距离
+            // 火狐和chrome都是认为滚动条是html的
+            var st = document.documentElement.scrollTop;
+            console.log(st);
+            // clientX和clientY
+            // 用于获取鼠标在当前可见窗口的坐标
+            // div的偏移量，是相对于整个页面的
+
+            // pageX和pageY可以获取鼠标相对于当前页面的坐标
+            // 在ie8中不支持
+            // var left = window.event.clientX;
+            // var top = window.event.clientY;
+
+            var left = window.event.pageX;
+            var top = window.event.pageY;
+            // 设置div的偏移量
+            box1.style.left = left + "px"; //少单位
+            box1.style.top = top + "px";
+        }
+        // 取消冒泡
+    var box2 = document.getElementById("box2");
+    box2.onmousemove = function(event) {
+        event.cancelBubble = true;
+    }
+</script>
+
+</html>

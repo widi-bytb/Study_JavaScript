@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div id="box1"></div>
+    <script>
+        // 当鼠标滚轮向下滚时，box1变长
+        // 当滚轮向上滚动时，box1变短
+
+        var box1 = document.getElementById("box1");
+        // 为我们的box1绑定鼠标滚轮滚动事件
+        // onwheel鼠标滚轮滚动事件，会在滚轮滚动时触发
+        box1.onwheel = function() {
+            alert("我滚了");
+        };
+    </script>
+</body>
+
+</html>

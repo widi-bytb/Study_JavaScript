@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function fun(a, b) {
+            console.log("a=" + a);
+            console.log("b=" + b);
+            //alert(this.name);
+        }
+        var obj = {
+            name: "obj",
+            sayName: function(a, b) {
+                //alert(this.name);
+            }
+        };
+        var obj1 = {
+            name: "obj1"
+        };
+        //fun.call(obj, 1, 2);
+        fun.apply(obj1, [13, 21]);
+        //fun.call(obj);
+        //fun(1, 2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

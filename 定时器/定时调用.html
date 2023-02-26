@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="count">1</h1>
+    <script>
+        var count = document.getElementById("count");
+
+        // 使count中的内容会自动切换
+        // 如果希望一段程序，可以每间隔一段时间执行一次，可以使用定时调用
+        // setInterval（）
+        // ——定时调用
+        // ——可以将一个函数，每间隔一段时间执行一次
+        // 参数
+        // ——回调函数,该函数会每隔一段时间被调用一次
+        // ——每次调用间隔的时间，单位是毫秒
+        // 返回值
+        // ——返回一个Number类型的数据
+
+        var num = 1;
+        var times = setInterval(function() {
+            count.innerHTML = num++;
+            if (num == 11) {
+                clearInterval(times);
+            }
+        }, 1000);
+        console.log(times);
+
+        // clearInterval(times);
+        // clearInterval（）可以用来关闭定时器
+        //
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div id="box1"></div>
+    <input id="input" type="text" />
+    <script>
+        // 键盘事件
+        // onkeydown
+        // ——按键被按下
+        // ——对于onkeydown来说如果一直按着某个按键不松手，则事件一直会被触发
+        // ——当onkeydown连续触发时，第一次和第二次之间会间隔长一点，其他的会非常快
+        // onkeyup
+        // ——按键被松开
+        // 键盘事件一般都是绑定给一些可以获取到焦点的对象或者是document
+
+        // document.onkeydown = function(event) {
+
+        //     // 可以通过keyCode来获取按键的编码
+        //     // code可以直接获取到按键,
+        //     // key可以直接获取到按键,
+        //     if (event.key === "y") {
+        //         console.log("你被按下了");
+        //     }
+        //     // console.log(typeof event.key)
+        //     // console.log(event.key);
+        // };
+
+        var input = document.getElementById("input");
+        input.onkeydown = function(event) {
+            // console.log("按键松开了");
+
+            // 在文本框中不能输入数字 
+            // 数字keyCode 48-57
+            // if (event.keyCode >= 48 && event.keyCode <= 57) {
+            //     return false;
+
+            // }
+
+
+            // 在文本框中输入内容，属于onkeydown的默认行为
+            // 如果onkeydown中取消默认行为，则输入内容，不会出现在文本框中
+        };
+    </script>
+</body>
+
+</html>
